@@ -53,6 +53,7 @@ public class LayoutPuzzleButtons : MonoBehaviour
                         btn.image.sprite = puzzleButtonsBacksideImage;
                     }
                 }
+                setupPuzzleGame.SetPuzzleButtonsAndAnimators(level1Buttons, level1Anims);
                 break;
 
             case 1:
@@ -67,6 +68,7 @@ public class LayoutPuzzleButtons : MonoBehaviour
                         btn.image.sprite = puzzleButtonsBacksideImage;
                     }
                 }
+                setupPuzzleGame.SetPuzzleButtonsAndAnimators(level2Buttons, level2Anims);
                 break;
 
             case 2:
@@ -81,6 +83,8 @@ public class LayoutPuzzleButtons : MonoBehaviour
                         btn.image.sprite = puzzleButtonsBacksideImage;
                     }
                 }
+                setupPuzzleGame.SetPuzzleButtonsAndAnimators(level3Buttons, level3Anims);
+
                 break;
 
             case 3:
@@ -95,6 +99,8 @@ public class LayoutPuzzleButtons : MonoBehaviour
                         btn.image.sprite = puzzleButtonsBacksideImage;
                     }
                 }
+                setupPuzzleGame.SetPuzzleButtonsAndAnimators(level4Buttons, level4Anims);
+
                 break;
 
             case 4:
@@ -109,8 +115,8 @@ public class LayoutPuzzleButtons : MonoBehaviour
                         btn.image.sprite = puzzleButtonsBacksideImage;
                     }
                 }
+                setupPuzzleGame.SetPuzzleButtonsAndAnimators(level5Buttons, level5Anims);
                 break;
-            
         }
     }
 

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class SetupPuzzleGame : MonoBehaviour
 {
+    [SerializeField] private PuzzleGameManager puzzleGameManager;
+
     private Sprite[] fruitPuzzleSprites, animalPuzzleSprites;
 
     [SerializeField]
@@ -40,6 +42,10 @@ public class SetupPuzzleGame : MonoBehaviour
         this.selectedPuzzle = selectedPuzzle;
 
         PrepareGameSprites();
+
+        puzzleGameManager.SetGamePuzzleSprites(this.gamePuzzles);
+
+
     }
 
     void PrepareGameSprites()
@@ -70,6 +76,7 @@ public class SetupPuzzleGame : MonoBehaviour
         switch(selectedPuzzle)
         {
             case "FruitsPuzzle" :
+                ShuffleSprites(fruitPuzzleSprites);
                 for (int i = 0; i < looper; i++)
                 {
                     if(index == (looper / 2))
@@ -83,6 +90,8 @@ public class SetupPuzzleGame : MonoBehaviour
                 break;
 
             case "AnimalsPuzzle" :
+                ShuffleSprites(animalPuzzleSprites);
+
                 for (int i = 0; i < looper; i++)
                 {
                     if(index == (looper / 2))
@@ -101,6 +110,8 @@ public class SetupPuzzleGame : MonoBehaviour
     {
         this.puzzleButtons = puzzleButtons;
         this.puzzleButtonsAnimators = puzzleButtonsAnimators;
+
+        puzzleGameManager.SetUpButtonsAndAnimators(puzzleButtons, puzzleButtonsAnimators);
     }
 
     void Shuffle(List<Sprite> list)
@@ -113,4 +124,18 @@ public class SetupPuzzleGame : MonoBehaviour
             list[randomIndex] = temp;
         }
     }
+
+    void ShuffleSprites(Sprite[] arr)
+    {
+        for(int i = 0; i < arr.Length; i++)
+        {
+            Sprite temp = arr[i];
+            int randomIndex = Random.Range(i, arr.Length);
+            arr[i] = arr[randomIndex];
+            arr[randomIndex] = temp;
+        }
+    }
+
+
+
 }

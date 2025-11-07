@@ -3,6 +3,8 @@ using System.Collections;
 
 public class SelectPuzzle : MonoBehaviour
 {
+    [SerializeField] private PuzzleGameManager puzzleGameManager;
+
     [SerializeField] private SelectLevel selectLevel;
     // this is a script
 
@@ -29,6 +31,9 @@ public class SelectPuzzle : MonoBehaviour
     public void SelectedPuzzle()
     {
         selectedPuzzle = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;
+
+        puzzleGameManager.SetSelectedPuzzle(selectedPuzzle);
+        
         selectLevel.SetSelectedPuzzle(selectedPuzzle);
 
         StartCoroutine(ShowPuzzleLevelSelectMenu());

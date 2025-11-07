@@ -4,6 +4,7 @@ using System.Collections;
 
 public class SelectLevel : MonoBehaviour
 {
+    [SerializeField] private PuzzleGameManager puzzleGameManager;
 
     [SerializeField] LoadPuzzleGame loadPuzzleGame;
     // this is a script
@@ -48,6 +49,8 @@ public class SelectLevel : MonoBehaviour
     public void SelectPuzzleLevel()
     {
         int level = int.Parse(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
+        puzzleGameManager.SetLevel(level);
+        
         loadPuzzleGame.LoadPuzzle(level, selectedPuzzle);
 
     }

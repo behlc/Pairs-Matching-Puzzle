@@ -3,6 +3,9 @@ using System.Collections;
 
 public class SelectPuzzle : MonoBehaviour
 {
+    [SerializeField] private SelectLevel selectLevel;
+    // this is a script
+
     [SerializeField] private GameObject selectPuzzleMenuPanel;
     [SerializeField] private Animator selectPuzzleMenuAnim;
 
@@ -26,6 +29,8 @@ public class SelectPuzzle : MonoBehaviour
     public void SelectedPuzzle()
     {
         selectedPuzzle = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;
+        selectLevel.SetSelectedPuzzle(selectedPuzzle);
+
         StartCoroutine(ShowPuzzleLevelSelectMenu());
     }
 
@@ -38,7 +43,7 @@ public class SelectPuzzle : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         selectPuzzleMenuPanel.SetActive(false);
-
-
     }
+
+
 }

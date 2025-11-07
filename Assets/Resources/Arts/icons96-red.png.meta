@@ -1,34 +1,10 @@
 fileFormatVersion: 2
-guid: 18a2c838f372966469b046b312ce5506
+guid: d516f5f900f733f4dbc3e6d3df5274d7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7497585796809523290
-    second: fruits-icons_0
-  - first:
-      213: -6262372394169056834
-    second: fruits-icons_1
-  - first:
-      213: 2523518263065055517
-    second: fruits-icons_2
-  - first:
-      213: 5097306729422508519
-    second: fruits-icons_3
-  - first:
-      213: 1045368151426965931
-    second: fruits-icons_4
-  - first:
-      213: -847250998698117822
-    second: fruits-icons_5
-  - first:
-      213: 7457844797686595310
-    second: fruits-icons_6
-  - first:
-      213: 7848730140159230441
-    second: fruits-icons_7
-  - first:
-      213: 2716253111210556488
-    second: fruits-icons_8
+      213: -2155492745216803428
+    second: icons96-red_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 360
+  spritePixelsToUnits: 96
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -99,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -150,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FruitsPuzzle_0
+      name: icons96-red_0
       rect:
         serializedVersion: 2
-        x: 62
-        y: 36
-        width: 958
-        height: 899
+        x: 11
+        y: 11
+        width: 74
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2cb158262f5749f4b8f07752883c683b
-      internalID: -641517137
+      spriteID: c9dbb6db4c62612e0800000000000000
+      internalID: -2155492745216803428
       vertices: []
       indices: 
       edges: []
@@ -175,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d520e489ffe2f2448b0e140511d09e67
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -185,17 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FruitsPuzzle_0: -641517137
-      fruits-icons_0: -7497585796809523290
-      fruits-icons_1: -6262372394169056834
-      fruits-icons_2: 2523518263065055517
-      fruits-icons_3: 5097306729422508519
-      fruits-icons_4: 1045368151426965931
-      fruits-icons_5: -847250998698117822
-      fruits-icons_6: 7457844797686595310
-      fruits-icons_7: 7848730140159230441
-      fruits-icons_8: 2716253111210556488
-      fruits-icons_9: 1471579444
+      icons96-red_0: -2155492745216803428
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

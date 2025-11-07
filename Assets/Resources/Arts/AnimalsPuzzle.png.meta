@@ -138,79 +138,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AnimalsPuzzle_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 612
-        width: 528
-        height: 396
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3816dce40426e3c4db652a5b3a2b2792
-      internalID: -929204499
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AnimalsPuzzle_2
-      rect:
-        serializedVersion: 2
-        x: 584
-        y: 596
-        width: 452
-        height: 416
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 962b0afe86688c946aea57c17eebe479
-      internalID: 594002900
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AnimalsPuzzle_3
-      rect:
-        serializedVersion: 2
-        x: 76
-        y: 76
-        width: 408
-        height: 380
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 61b523c4b803d19478929e9270c2819f
-      internalID: 11287961
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: AnimalsPuzzle_4
       rect:
         serializedVersion: 2
-        x: 556
-        y: 40
-        width: 520
-        height: 460
+        x: 1
+        y: 68
+        width: 1079
+        height: 960
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,28 +155,6 @@ TextureImporter:
       bones: []
       spriteID: 70c11906d88f3c948b343bce89b68a96
       internalID: 1074894646
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AnimalsPuzzle_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 59
-        width: 1080
-        height: 981
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b65955e5366589e4c8a21a3032f2dabb
-      internalID: 1773718072
       vertices: []
       indices: 
       edges: []

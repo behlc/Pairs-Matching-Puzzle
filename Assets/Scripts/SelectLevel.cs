@@ -5,6 +5,9 @@ using System.Collections;
 public class SelectLevel : MonoBehaviour
 {
 
+    [SerializeField] LoadPuzzleGame loadPuzzleGame;
+    // this is a script
+
     [SerializeField] private GameObject selectPuzzleMenuPanel;
     [SerializeField] private Animator selectPuzzleMenuAnim;
 
@@ -40,6 +43,19 @@ public class SelectLevel : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         puzzleLevelsPanel.SetActive(false);
+    }
 
+    public void SelectPuzzleLevel()
+    {
+        int level = int.Parse(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
+        loadPuzzleGame.LoadPuzzle(level, selectedPuzzle);
+
+    }
+
+    public void SetSelectedPuzzle(string selectedPuzzle)
+    {
+        // set the selectedPuzzle variable in this script to the selectedPuzzle parameter
+        this.selectedPuzzle = selectedPuzzle;
+        
     }
 }

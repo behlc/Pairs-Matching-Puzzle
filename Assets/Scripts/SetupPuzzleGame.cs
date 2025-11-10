@@ -45,7 +45,6 @@ public class SetupPuzzleGame : MonoBehaviour
 
         puzzleGameManager.SetGamePuzzleSprites(this.gamePuzzles);
 
-
     }
 
     void PrepareGameSprites()

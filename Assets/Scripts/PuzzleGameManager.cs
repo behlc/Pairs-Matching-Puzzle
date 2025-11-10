@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Collections;
 
 public class PuzzleGameManager : MonoBehaviour
 {
@@ -28,6 +29,14 @@ public class PuzzleGameManager : MonoBehaviour
     public void PickAPuzzle()
     {
         Debug.Log("selected button is" + UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
+    }
+
+    IEnumerator TurnPuzzleButtonUp(Animator anim, Button btn, Sprite puzzleImage)
+    {
+        anim.Play("PuzzleButtonTurnUp");
+        yield return new WaitForSeconds(0.4f);
+        btn.image.sprite = puzzleImage;
+
     }
 
     void AddListeners()

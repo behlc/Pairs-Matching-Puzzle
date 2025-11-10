@@ -14,6 +14,18 @@ public class PuzzleGameManager : MonoBehaviour
     private int level;
     private string selectedPuzzle;
 
+    // boolean variables are set to false by default
+    private bool firstGuess, secondGuess;
+    private int firstGuessIndex, secondGuessIndex;
+
+    private string firstGuessPuzzle, secondGuessPuzzle;
+
+    private Sprite puzzleBackgroundImage;
+
+    private int countTryGuess;
+    private int countCorrectGuess;
+    private int gameGuess;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,7 +40,24 @@ public class PuzzleGameManager : MonoBehaviour
 
     public void PickAPuzzle()
     {
-        Debug.Log("selected button is" + UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
+        if(!firstGuess)
+        {
+            firstGuess = true;
+            firstGuessIndex = int.Parse(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
+            firstGuessPuzzle = gamePuzzleSprites[firstGuessIndex].name;
+            StartCoroutine(TurnPuzzleButtonUp(puzzleButtonsAnimators[firstGuessIndex], puzzleButtons[firstGuessIndex], gamePuzzleSprites[firstGuessIndex]));
+
+        } else if(!secondGuess)
+        {
+            secondGuess = true;
+            secondGuessIndex = int.Parse(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
+            secondGuessPuzzle = gamePuzzleSprites[secondGuessIndex].name;
+            StartCoroutine(TurnPuzzleButtonUp(puzzleButtonsAnimators[secondGuessIndex], puzzleButtons[secondGuessIndex], gamePuzzleSprites[secondGuessIndex]));
+            StartCoroutine(CheckIfThePuzzlesMatch(puzzleBackgroundImage));
+
+            countTryGuess++;
+        }
+
     }
 
     IEnumerator TurnPuzzleButtonUp(Animator anim, Button btn, Sprite puzzleImage)
@@ -38,6 +67,36 @@ public class PuzzleGameManager : MonoBehaviour
         btn.image.sprite = puzzleImage;
 
     }
+
+    IEnumerator TurnPuzzleButtonBack(Animator anim, Button btn, Sprite puzzleImage)
+    {
+        anim.Play("PuzzleButtonTurnBack");
+        yield return new WaitForSeconds(0.4f);
+        btn.image.sprite = puzzleImage;
+
+    }
+
+    IEnumerator CheckIfThePuzzlesMatch(Sprite puzzleBackgroundImage)
+    {
+        yield return new WaitForSeconds(1.7f);
+        if(firstGuessPuzzle == secondGuessPuzzle)
+        {
+            puzzleButtonsAnimators[firstGuessIndex].Play("PuzzleButtonFadeOut");
+            puzzleButtonsAnimators[secondGuessIndex].Play("PuzzleButtonFadeOut");
+
+            //increment score
+            CheckIfTheGameIsFinished();
+
+        } else
+        {
+            StartCoroutine(TurnPuzzleButtonBack(puzzleButtonsAnimators[firstGuessIndex], puzzleButtons[firstGuessIndex], puzzleBackgroundImage));
+            StartCoroutine(TurnPuzzleButtonBack(puzzleButtonsAnimators[secondGuessIndex], puzzleButtons[secondGuessIndex], puzzleBackgroundImage));
+        }
+        yield return new WaitForSeconds(0.7f);
+        firstGuess = false;
+        secondGuess = false;
+    }
+
 
     void AddListeners()
     {
@@ -52,6 +111,9 @@ public class PuzzleGameManager : MonoBehaviour
     {
         this.puzzleButtons = buttons;
         this.puzzleButtonsAnimators = animators;
+
+        gameGuess = puzzleButtons.Count / 2;
+        puzzleBackgroundImage = puzzleButtons[0].image.sprite;
 
         AddListeners();
 
@@ -70,5 +132,14 @@ public class PuzzleGameManager : MonoBehaviour
     public void SetSelectedPuzzle(string selectedPuzzle)
     {
         this.selectedPuzzle = selectedPuzzle;
+    }
+
+    void CheckIfTheGameIsFinished()
+    {
+        countCorrectGuess++;
+        if(countCorrectGuess == gameGuess)
+        {
+            Debug.Log("Game ends");
+        }
     }
 }

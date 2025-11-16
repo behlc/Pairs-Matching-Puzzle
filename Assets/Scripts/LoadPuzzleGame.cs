@@ -1,8 +1,12 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LoadPuzzleGame : MonoBehaviour
 {
+    [SerializeField] PuzzleGameManager puzzleGameManager;
+
+    [SerializeField] LevelLocker levelLocker;
 
     [SerializeField] private LayoutPuzzleButtons layoutPuzzleButtons;
 
@@ -17,6 +21,8 @@ public class LoadPuzzleGame : MonoBehaviour
 
     private int puzzleLevel;
     private string selectedPuzzle;
+
+    private List<Animator> anims;
 
     public void LoadPuzzle(int level, string puzzle)
     {
@@ -48,6 +54,10 @@ public class LoadPuzzleGame : MonoBehaviour
 
     public void BackToPuzzleLevelSelectMenu()
     {
+        anims = puzzleGameManager.ResetGameplay();
+
+        levelLocker.CheckWhichLevelsAreUnlocked(selectedPuzzle);
+
         switch(puzzleLevel)
         {
             case 0:
@@ -74,7 +84,16 @@ public class LoadPuzzleGame : MonoBehaviour
         puzzleLevelsPanel.SetActive(true);
         puzzleLevelsAnim.Play("LevelsPanelSlideIn");
         puzzleGamePanelAnim.Play("PuzzleGamePanelSlideOut");
+
         yield return new WaitForSeconds(1f);
+
+        // fix the rotation of the backside image of the button (happens only if there are images used)
+        foreach(Animator anim in anims)
+        {
+            anim.Play("PuzzleButtonIdle");
+        }
+        yield return new WaitForSeconds(0.5f);
+
         puzzleGamePanel.SetActive(false);
     }
 

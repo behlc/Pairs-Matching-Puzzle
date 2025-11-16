@@ -8,6 +8,13 @@ public class SelectPuzzle : MonoBehaviour
     [SerializeField] private SelectLevel selectLevel;
     // this is a script
 
+    [SerializeField] private LevelLocker levelLocker;
+    // this is a script 
+
+    [SerializeField] private StarsLocker starLocker;
+    // this is a script 
+
+
     [SerializeField] private GameObject selectPuzzleMenuPanel;
     [SerializeField] private Animator selectPuzzleMenuAnim;
 
@@ -30,9 +37,12 @@ public class SelectPuzzle : MonoBehaviour
 
     public void SelectedPuzzle()
     {
+        starLocker.DeactivateStars();
+        
         selectedPuzzle = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;
 
         puzzleGameManager.SetSelectedPuzzle(selectedPuzzle);
+        levelLocker.CheckWhichLevelsAreUnlocked(selectedPuzzle);
         
         selectLevel.SetSelectedPuzzle(selectedPuzzle);
 

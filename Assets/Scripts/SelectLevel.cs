@@ -6,8 +6,12 @@ public class SelectLevel : MonoBehaviour
 {
     [SerializeField] private PuzzleGameManager puzzleGameManager;
 
-    [SerializeField] LoadPuzzleGame loadPuzzleGame;
+    [SerializeField] private LevelLocker levelLocker;
+
+    [SerializeField] private LoadPuzzleGame loadPuzzleGame;
     // this is a script
+
+    [SerializeField] private PuzzleGameSaver puzzleGameSaver;
 
     [SerializeField] private GameObject selectPuzzleMenuPanel;
     [SerializeField] private Animator selectPuzzleMenuAnim;
@@ -16,6 +20,7 @@ public class SelectLevel : MonoBehaviour
     [SerializeField] private Animator puzzleLevelsAnim;
 
     private string selectedPuzzle;
+    private bool[] puzzle;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,7 +37,8 @@ public class SelectLevel : MonoBehaviour
     public void BackToPuzzleLevelsMenu()
     {
         StartCoroutine(ShowPuzzleSelectMenu());
-
+        puzzleGameSaver.SaveGameData();
+        
     }
 
     IEnumerator ShowPuzzleSelectMenu()
@@ -49,10 +55,13 @@ public class SelectLevel : MonoBehaviour
     public void SelectPuzzleLevel()
     {
         int level = int.Parse(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
-        puzzleGameManager.SetLevel(level);
-        
-        loadPuzzleGame.LoadPuzzle(level, selectedPuzzle);
+        puzzle = levelLocker.GetPuzzleLevels(selectedPuzzle);
 
+        if(puzzle[level]) 
+        {
+            puzzleGameManager.SetLevel(level);
+            loadPuzzleGame.LoadPuzzle(level, selectedPuzzle);
+        }
     }
 
     public void SetSelectedPuzzle(string selectedPuzzle)
